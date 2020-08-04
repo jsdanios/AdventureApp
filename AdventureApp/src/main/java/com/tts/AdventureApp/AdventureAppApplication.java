@@ -1,15 +1,14 @@
 package com.tts.AdventureApp;
 
-import java.util.stream.Stream;
+/* import java.util.stream.Stream;
 
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.CommandLineRunner; */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
+/* import org.springframework.context.annotation.Bean;
 
 import com.tts.AdventureApp.model.User;
-import com.tts.AdventureApp.repository.UserRepository;
+import com.tts.AdventureApp.repository.UserRepository; */
 
 @SpringBootApplication
 public class AdventureAppApplication {
@@ -18,7 +17,7 @@ public class AdventureAppApplication {
 		SpringApplication.run(AdventureAppApplication.class, args);
 	}
 	
-	@Bean
+	/* @Bean
     CommandLineRunner init(UserRepository userRepository) {
         return args -> {
             Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
@@ -27,5 +26,5 @@ public class AdventureAppApplication {
             });
             userRepository.findAll().forEach(System.out::println);
         };
-    }
+    } */
 }
