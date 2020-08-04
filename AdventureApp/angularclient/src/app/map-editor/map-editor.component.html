@@ -1,0 +1,23 @@
+<!--form for manual input of starting location-->
+<form [formGroup]="mapForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    Address:
+    <input type="text" formControlName="address">
+  </label>
+
+  <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+
+  <label>
+    State:
+    <input type="text" formControlName="state">
+  </label>
+
+  <button type="submit">Generate a location</button>"
+
+</form>
+
+

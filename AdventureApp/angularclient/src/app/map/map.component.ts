@@ -1,21 +1,29 @@
+//default map center
+let mapLocation = new MapLocation("55.5815245", "36.8251383");
+
 import {
   Component,
-  AfterViewInit,
   ViewChild,
   ElementRef,
   OnInit,
 } from '@angular/core';
+import { MapLocation } from '../map-location';
+import { MapService } from '../map-service.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
 })
-export class MapComponent implements AfterViewInit {
+
+export class MapComponent implements OnInit{
+
+  constructor(private mapService: MapService) {}
+
   @ViewChild('mapContainer', { static: true }) gmap: ElementRef;
   map: google.maps.Map;
-  lat = 40.73061;
-  lng = -73.935242;
+  lat = Number(mapLocation.lat);
+  lng = Number(mapLocation.lng);
 
   coordinates = new google.maps.LatLng(this.lat, this.lng);
 
@@ -29,7 +37,11 @@ export class MapComponent implements AfterViewInit {
     map: this.map,
   });
 
-  ngAfterViewInit() {
+
+  ngOnInit() {
+    this.mapService.getLocationForMap(mapLocation).subscribe(data => {
+      mapLocation = data;
+    })
     this.mapInitializer();
   }
 
@@ -38,5 +50,4 @@ export class MapComponent implements AfterViewInit {
     this.marker.setMap(this.map);
   }
 
-  constructor() {}
 }
