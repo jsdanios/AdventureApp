@@ -38,10 +38,15 @@ public class User {
 
 	}
 
-	public User(String username, String password, String email) {
+	public User(String username, String email) {
 		this.setUsername(username);
-		this.setPassword(password);
+
 		this.setEmail(email);
+    }
+    
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + username + ", email=" + email + "]";
 	}
 
     public String getUsername() {
