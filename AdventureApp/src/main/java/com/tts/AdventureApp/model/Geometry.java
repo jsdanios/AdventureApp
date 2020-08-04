@@ -1,7 +1,7 @@
 package com.tts.AdventureApp.model;
 
 public class Geometry {
-    private Location location;
+    public Location location;
 
     public Location getLocation() {
         return location;
