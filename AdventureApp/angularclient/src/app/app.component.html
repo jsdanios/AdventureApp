@@ -1,4 +1,20 @@
 <h1 class="text-center">Welcome to the Adventure App!</h1>
-<app-map-editor></app-map-editor>
+
+
+<div class="container">
+  <ul class="nav nav-pills">
+    <li><a routerLinkActive="active" routerLink="/user"></a></li>
+    <li><a routerLinkActive="active" routerLink="/map">Map</a></li>
+    <li><a routerLinkActive="active" routerLink="/login">Login</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+  </ul>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- <app-map-editor></app-map-editor>
 <h3><a routerLink="/map" class="btn btn-info" >Click me to open map!</a></h3>
-      <router-outlet></router-outlet>
+<router-outlet></router-outlet>
+ -->

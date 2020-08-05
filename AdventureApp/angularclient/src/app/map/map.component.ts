@@ -1,6 +1,7 @@
 //default map center
 let mapLocation = new MapLocation("55.5815245", "36.8251383");
 
+
 import {
   Component,
   ViewChild,
@@ -9,6 +10,10 @@ import {
 } from '@angular/core';
 import { MapLocation } from '../map-location';
 import { MapService } from '../map-service.service';
+import { UserService } from '../user.service';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-map',
@@ -17,8 +22,19 @@ import { MapService } from '../map-service.service';
 })
 
 export class MapComponent implements OnInit{
+  private mapService: MapService;
 
-  constructor(private mapService: MapService) {}
+
+  title = 'Demo';
+  greeting = {};
+
+  constructor(private app: UserService, private http: HttpClient) {
+    http.get('http://localhost:8080').subscribe(data => this.greeting = data);
+  }
+
+  authenticated() { return this.app.authenticated; }
+
+  //constructor(private mapService: MapService) {}
 
   @ViewChild('mapContainer', { static: true }) gmap: ElementRef;
   map: google.maps.Map;

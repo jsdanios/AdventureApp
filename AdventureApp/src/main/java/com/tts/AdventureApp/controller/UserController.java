@@ -1,11 +1,13 @@
 package com.tts.AdventureApp.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tts.AdventureApp.model.User;
@@ -17,6 +19,11 @@ public class UserController {
  
     private final UserRepository userRepository = null;
  
+    @RequestMapping("/user")
+    public Principal user(Principal user) {
+      return user;
+    }
+    
     @GetMapping("/users")
     public List<User> getUsers() {
         return (List<User>) userRepository.findAll();
